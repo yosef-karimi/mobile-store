@@ -1,0 +1,544 @@
+import { productImageMap } from './product-image-map'
+import type { Product, ProductSpec } from './types'
+
+const photo = (id: string, w = 800) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=85`
+
+const gallery: Record<string, string[]> = {
+  'iphone-16-pro': [
+    'photo-1592899677977-9c10ca588bbd',
+    'photo-1512499617640-c74ae3a79d37',
+    'photo-1605236453806-6ff36851218e',
+    'photo-1598327105666-5b89351aff97',
+  ],
+  'iphone-15': [
+    'photo-1511709268805-6e6b0c4d8a4b',
+    'photo-1592750475338-74b7b21085ab',
+    'photo-1601784551446-20c9e07cdbdb',
+    'photo-1510557880182-3d4d3cba35a5',
+  ],
+  'samsung-s25-ultra': [
+    'photo-1511709268805-6e6b0c4d8a4b',
+    'photo-1605236453806-6ff36851218e',
+    'photo-1598327105666-5b89351aff97',
+    'photo-1512499617640-c74ae3a79d37',
+  ],
+  'samsung-a56': [
+    'photo-1592899677977-9c10ca588bbd',
+    'photo-1510557880182-3d4d3cba35a5',
+    'photo-1592750475338-74b7b21085ab',
+    'photo-1601784551446-20c9e07cdbdb',
+  ],
+  'xiaomi-14t-pro': [
+    'photo-1598327105666-5b89351aff97',
+    'photo-1511709268805-6e6b0c4d8a4b',
+    'photo-1605236453806-6ff36851218e',
+    'photo-1512499617640-c74ae3a79d37',
+  ],
+  'redmi-note-14': [
+    'photo-1592750475338-74b7b21085ab',
+    'photo-1592899677977-9c10ca588bbd',
+    'photo-1510557880182-3d4d3cba35a5',
+    'photo-1601784551446-20c9e07cdbdb',
+  ],
+  'airpods-pro': [
+    'photo-1600294037681-c80b4cb5b434',
+    'photo-1590658268037-6bf12165a8df',
+    'photo-1606220945770-b5b6c2c55bf1',
+    'photo-1608156639585-b3a032ef9689',
+  ],
+  'galaxy-buds': [
+    'photo-1590658268037-6bf12165a8df',
+    'photo-1606220945770-b5b6c2c55bf1',
+    'photo-1608156639585-b3a032ef9689',
+    'photo-1600294037681-c80b4cb5b434',
+  ],
+  'jbl-tune': [
+    'photo-1505740420928-5e560c06d30e',
+    'photo-1484704849700-f032a568e944',
+    'photo-1546435770-a3e426bf472b',
+    'photo-1599669454699-248893623440',
+  ],
+  'galaxy-watch': [
+    'photo-1523275335684-37898b6baf30',
+    'photo-1546868871-7041f2a55e12',
+    'photo-1508685096489-7aacd43bd3b1',
+    'photo-1434493789847-2f02dc6ca35d',
+  ],
+  'xiaomi-band': [
+    'photo-1546868871-7041f2a55e12',
+    'photo-1523275335684-37898b6baf30',
+    'photo-1508685096489-7aacd43bd3b1',
+    'photo-1434493789847-2f02dc6ca35d',
+  ],
+  'anker-powerbank': [
+    'photo-1609592806596-b43bada3f2a2',
+    'photo-1609091839311-d5365f9ff1c5',
+    'photo-1608043152269-423dbba4e7e1',
+    'photo-1583394838336-acd977736f90',
+  ],
+  'baseus-charger': [
+    'photo-1583863788434-e58a36330cf0',
+    'photo-1609592806596-b43bada3f2a2',
+    'photo-1609091839311-d5365f9ff1c5',
+    'photo-1583394838336-acd977736f90',
+  ],
+  'usb-c-cable': [
+    'photo-1558618666-fcd25c85cd64',
+    'photo-1583863788434-e58a36330cf0',
+    'photo-1609592806596-b43bada3f2a2',
+    'photo-1609091839311-d5365f9ff1c5',
+  ],
+  'phone-case': [
+    'photo-1601593346740-925612772716',
+    'photo-1601784551446-20c9e07cdbdb',
+    'photo-1512499617640-c74ae3a79d37',
+    'photo-1592750475338-74b7b21085ab',
+  ],
+  'samsung-charger': [
+    'photo-1583863788434-e58a36330cf0',
+    'photo-1558618666-fcd25c85cd64',
+    'photo-1609592806596-b43bada3f2a2',
+    'photo-1609091839311-d5365f9ff1c5',
+  ],
+}
+
+export function productImages(slug: string, count = 4): string[] {
+  return (productImageMap[slug] ?? []).slice(0, count)
+}
+
+const colors = ['#171717', '#ffffff', '#2563eb', '#a7a7a7']
+const noSizes: string[] = []
+
+type Seed = {
+  name: string
+  slug: string
+  price: number
+  priceOld?: number
+  category: string
+  brand: string
+  rating: number
+  reviewsCount: number
+  stock: number
+  featured?: boolean
+  bestseller?: boolean
+  isNew?: boolean
+}
+
+const seeds: Seed[] = [
+  { name: 'Apple iPhone 16 Pro', slug: 'iphone-16-pro', price: 7499, priceOld: 7999, category: 'phones', brand: 'Apple', rating: 4.9, reviewsCount: 286, stock: 12, featured: true, bestseller: true },
+  { name: 'Samsung Galaxy S25 Ultra', slug: 'samsung-s25-ultra', price: 6899, priceOld: 7299, category: 'phones', brand: 'Samsung', rating: 4.9, reviewsCount: 194, stock: 9, featured: true, isNew: true },
+  { name: 'Xiaomi 14T Pro', slug: 'xiaomi-14t-pro', price: 3299, priceOld: 3599, category: 'phones', brand: 'Xiaomi', rating: 4.7, reviewsCount: 132, stock: 21, featured: true },
+  { name: 'Apple iPhone 15', slug: 'iphone-15', price: 5299, category: 'phones', brand: 'Apple', rating: 4.8, reviewsCount: 310, stock: 15, bestseller: true },
+  { name: 'Samsung Galaxy A56', slug: 'samsung-a56', price: 2199, priceOld: 2399, category: 'phones', brand: 'Samsung', rating: 4.6, reviewsCount: 88, stock: 32, isNew: true },
+  { name: 'Xiaomi Redmi Note 14 Pro', slug: 'redmi-note-14', price: 1899, category: 'phones', brand: 'Xiaomi', rating: 4.6, reviewsCount: 105, stock: 27, bestseller: true },
+  { name: 'Apple AirPods Pro 2', slug: 'airpods-pro', price: 1199, priceOld: 1399, category: 'headphones', brand: 'Apple', rating: 4.9, reviewsCount: 420, stock: 18, featured: true },
+  { name: 'Samsung Galaxy Buds 3 Pro', slug: 'galaxy-buds', price: 899, category: 'headphones', brand: 'Samsung', rating: 4.7, reviewsCount: 167, stock: 24 },
+  { name: 'JBL Tune 770NC Wireless Headphones', slug: 'jbl-tune', price: 599, priceOld: 749, category: 'headphones', brand: 'JBL', rating: 4.7, reviewsCount: 203, stock: 31, featured: true },
+  { name: 'Samsung Galaxy Watch 7', slug: 'galaxy-watch', price: 1299, category: 'smartwatches', brand: 'Samsung', rating: 4.8, reviewsCount: 118, stock: 14, isNew: true },
+  { name: 'Xiaomi Smart Band 9', slug: 'xiaomi-band', price: 399, category: 'smartwatches', brand: 'Xiaomi', rating: 4.6, reviewsCount: 241, stock: 42, bestseller: true },
+  { name: 'Anker 20000mAh Power Bank', slug: 'anker-powerbank', price: 899, priceOld: 999, category: 'others', brand: 'Anker', rating: 4.8, reviewsCount: 156, stock: 19, featured: true },
+  { name: 'Baseus 65W Fast Charger', slug: 'baseus-charger', price: 449, category: 'others', brand: 'Baseus', rating: 4.7, reviewsCount: 97, stock: 35 },
+  { name: 'Baseus USB-C Charging Cable', slug: 'usb-c-cable', price: 129, category: 'others', brand: 'Baseus', rating: 4.5, reviewsCount: 82, stock: 65 },
+  { name: 'Protective Smartphone Case', slug: 'phone-case', price: 159, category: 'others', brand: 'Spigen', rating: 4.6, reviewsCount: 73, stock: 50 },
+  { name: 'Samsung 25W Fast Charger', slug: 'samsung-charger', price: 299, priceOld: 349, category: 'others', brand: 'Samsung', rating: 4.7, reviewsCount: 111, stock: 29, bestseller: true },
+  { name: "HONOR 400 Pro", slug: "honor-400-pro", price: 2899, category: "phones", brand: "HONOR", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Motorola Edge 60 Pro", slug: "motorola-edge-60-pro", price: 2599, category: "phones", brand: "Motorola", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "OnePlus 13", slug: "oneplus-13", price: 4299, category: "phones", brand: "OnePlus", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Google Pixel 9 Pro", slug: "pixel-9-pro", price: 4999, category: "phones", brand: "Google", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Apple iPad Pro M4", slug: "ipad-pro-m4", price: 6999, category: "tablets", brand: "Apple", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Apple iPad Air M3", slug: "ipad-air-m3", price: 3899, category: "tablets", brand: "Apple", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Samsung Galaxy Tab S10 Ultra", slug: "samsung-tab-s10-ultra", price: 5299, category: "tablets", brand: "Samsung", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Samsung Galaxy Tab S10+", slug: "samsung-tab-s10-plus", price: 4299, category: "tablets", brand: "Samsung", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Xiaomi Pad 7 Pro", slug: "xiaomi-pad-7-pro", price: 2199, category: "tablets", brand: "Xiaomi", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Lenovo Tab P12", slug: "lenovo-tab-p12", price: 1699, category: "tablets", brand: "Lenovo", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Xiaomi Redmi Pad Pro", slug: "redmi-pad-pro", price: 1499, category: "tablets", brand: "Xiaomi", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "OnePlus Pad 2", slug: "oneplus-pad-2", price: 2799, category: "tablets", brand: "OnePlus", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "HONOR Pad 9", slug: "honor-pad-9", price: 1399, category: "tablets", brand: "HONOR", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Huawei MatePad 11.5", slug: "huawei-matepad-11-5", price: 1899, category: "tablets", brand: "Huawei", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Apple MacBook Air M3", slug: "macbook-air-m3", price: 5899, category: "laptops", brand: "Apple", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Apple MacBook Pro M4", slug: "macbook-pro-m4", price: 9999, category: "laptops", brand: "Apple", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "ASUS Zenbook 14 OLED", slug: "asus-zenbook-14", price: 4299, category: "laptops", brand: "ASUS", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "ASUS Vivobook 15", slug: "asus-vivobook-15", price: 2499, category: "laptops", brand: "ASUS", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Lenovo IdeaPad Slim 5", slug: "lenovo-ideapad-slim-5", price: 3199, category: "laptops", brand: "Lenovo", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Lenovo Legion 5", slug: "lenovo-legion-5", price: 5499, category: "laptops", brand: "Lenovo", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "HP Pavilion 15", slug: "hp-pavilion-15", price: 2799, category: "laptops", brand: "HP", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Dell Inspiron 16", slug: "dell-inspiron-16", price: 3599, category: "laptops", brand: "Dell", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Acer Swift Go 14", slug: "acer-swift-go-14", price: 3299, category: "laptops", brand: "Acer", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Microsoft Surface Laptop 7", slug: "surface-laptop-7", price: 5199, category: "laptops", brand: "Microsoft", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Sony WH-1000XM5", slug: "sony-wh1000xm5", price: 1499, category: "headphones", brand: "Sony", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Bose QuietComfort Ultra", slug: "bose-qc-ultra", price: 1899, category: "headphones", brand: "Bose", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Soundcore Space Q45", slug: "soundcore-q45", price: 699, category: "headphones", brand: "Anker", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Sony WF-1000XM5", slug: "sony-wf1000xm5", price: 1299, category: "headphones", brand: "Sony", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Nothing Ear", slug: "nothing-ear", price: 599, category: "headphones", brand: "Nothing", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Xiaomi Redmi Buds 6 Pro", slug: "redmi-buds-6-pro", price: 399, category: "headphones", brand: "Xiaomi", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Beats Studio Pro", slug: "beats-studio-pro", price: 1399, category: "headphones", brand: "Beats", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Apple Watch Series 10", slug: "apple-watch-series-10", price: 1699, category: "smartwatches", brand: "Apple", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Apple Watch Ultra 2", slug: "apple-watch-ultra-2", price: 2899, category: "smartwatches", brand: "Apple", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Samsung Galaxy Watch Ultra", slug: "galaxy-watch-ultra", price: 2199, category: "smartwatches", brand: "Samsung", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Huawei Watch GT 5", slug: "huawei-watch-gt5", price: 1099, category: "smartwatches", brand: "Huawei", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Amazfit Balance", slug: "amazfit-balance", price: 899, category: "smartwatches", brand: "Amazfit", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Garmin Vivoactive 5", slug: "garmin-vivoactive-5", price: 1299, category: "smartwatches", brand: "Garmin", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Huawei Band 9", slug: "huawei-band-9", price: 299, category: "smartwatches", brand: "Huawei", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Amazfit GTR Mini", slug: "amazfit-gtr-mini", price: 599, category: "smartwatches", brand: "Amazfit", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "MagSafe Wireless Power Bank", slug: "magsafe-powerbank", price: 499, category: "others", brand: "Anker", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "UGREEN 3-in-1 Wireless Charger", slug: "ugreen-3in1-charger", price: 799, category: "others", brand: "UGREEN", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Foldable Aluminum Phone Stand", slug: "foldable-phone-stand", price: 149, category: "others", brand: "Generic", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Privacy Screen Protector", slug: "privacy-screen-protector", price: 99, category: "others", brand: "Generic", rating: 4.6, reviewsCount: 42, stock: 18 },
+  { name: "Beaded Phone Wrist Strap", slug: "beaded-phone-strap", price: 89, category: "others", brand: "Generic", rating: 4.6, reviewsCount: 42, stock: 18 },
+]
+
+
+const productDetails: Record<string, { description: string; specs: ProductSpec[] }> = {
+  "iphone-16-pro": {
+    description: "آیفون ۱۶ پرو با تراشه A18 Pro، نمایشگر Super Retina XDR و سیستم دوربین حرفه‌ای، برای عکاسی، فیلم‌برداری، بازی و اجرای برنامه‌های سنگین طراحی شده است. بدنه تیتانیومی و پشتیبانی از USB-C از ویژگی‌های مهم این مدل هستند.",
+    specs: [
+      { label: "نمایشگر", value: "6.3 اینچ Super Retina XDR OLED، نرخ نوسازی ProMotion تا 120Hz" },
+      { label: "پردازنده", value: "Apple A18 Pro" },
+      { label: "دوربین اصلی", value: "48MP اصلی، 48MP فوق عریض، 12MP تله‌فوتو با زوم اپتیکال 5 برابر" },
+      { label: "دوربین سلفی", value: "12MP TrueDepth" },
+      { label: "درگاه", value: "USB-C" },
+      { label: "بدنه", value: "فریم تیتانیومی، مقاوم در برابر آب و گردوغبار IP68" },
+    ],
+  },
+  "samsung-s25-ultra": {
+    description: "گلکسی S25 اولترا پرچم‌دار سامسونگ با پردازنده Snapdragon 8 Elite، نمایشگر بزرگ Dynamic AMOLED 2X و مجموعه دوربین چندگانه است. این گوشی برای کاربری حرفه‌ای، عکاسی، بازی و بهره‌وری روزانه گزینه‌ای قدرتمند محسوب می‌شود.",
+    specs: [
+      { label: "نمایشگر", value: "6.9 اینچ Dynamic AMOLED 2X، نرخ نوسازی 120Hz" },
+      { label: "پردازنده", value: "Snapdragon 8 Elite for Galaxy" },
+      { label: "دوربین اصلی", value: "200MP اصلی، 50MP فوق عریض، 50MP و 10MP تله‌فوتو" },
+      { label: "باتری", value: "5000 میلی‌آمپر ساعت" },
+      { label: "شارژ سیمی", value: "تا 45 وات" },
+      { label: "قلم", value: "پشتیبانی از S Pen" },
+    ],
+  },
+  "xiaomi-14t-pro": {
+    description: "شیائومی 14T Pro با پردازنده Dimensity 9300+، نمایشگر AMOLED با نرخ نوسازی بالا و دوربین‌های توسعه‌یافته با همکاری Leica عرضه شده است. شارژ سریع 120 واتی و عملکرد قدرتمند، آن را برای کاربران حرفه‌ای مناسب می‌کند.",
+    specs: [
+      { label: "نمایشگر", value: "6.67 اینچ AMOLED، نرخ نوسازی تا 144Hz" },
+      { label: "پردازنده", value: "MediaTek Dimensity 9300+" },
+      { label: "دوربین اصلی", value: "50MP با همکاری Leica" },
+      { label: "باتری", value: "5000 میلی‌آمپر ساعت" },
+      { label: "شارژ", value: "شارژ سریع سیمی 120 وات" },
+      { label: "سیستم‌عامل اولیه", value: "Xiaomi HyperOS" },
+    ],
+  },
+  "iphone-15": {
+    description: "آیفون ۱۵ با نمایشگر Super Retina XDR، تراشه A16 Bionic و دوربین اصلی 48 مگاپیکسلی، تجربه‌ای روان برای استفاده روزمره، عکاسی و اجرای برنامه‌ها ارائه می‌دهد. این مدل از درگاه USB-C استفاده می‌کند.",
+    specs: [
+      { label: "نمایشگر", value: "6.1 اینچ Super Retina XDR OLED" },
+      { label: "پردازنده", value: "Apple A16 Bionic" },
+      { label: "دوربین اصلی", value: "48MP اصلی و 12MP فوق عریض" },
+      { label: "دوربین سلفی", value: "12MP TrueDepth" },
+      { label: "درگاه", value: "USB-C" },
+      { label: "مقاومت", value: "استاندارد IP68" },
+    ],
+  },
+  "samsung-a56": {
+    description: "گلکسی A56 یک گوشی میان‌رده با نمایشگر Super AMOLED، پردازنده Exynos 1580 و دوربین اصلی مجهز به لرزش‌گیر اپتیکال است. باتری پرظرفیت و پشتیبانی از شارژ 45 واتی آن را برای استفاده روزانه مناسب می‌کند.",
+    specs: [
+      { label: "نمایشگر", value: "6.7 اینچ Super AMOLED، نرخ نوسازی 120Hz" },
+      { label: "پردازنده", value: "Samsung Exynos 1580" },
+      { label: "دوربین اصلی", value: "50MP با لرزش‌گیر اپتیکال OIS" },
+      { label: "دوربین سلفی", value: "12MP" },
+      { label: "باتری", value: "5000 میلی‌آمپر ساعت" },
+      { label: "شارژ", value: "شارژ سریع تا 45 وات" },
+    ],
+  },
+  "redmi-note-14": {
+    description: "ردمی نوت ۱۴ پرو با نمایشگر AMOLED، دوربین اصلی با وضوح بالا و باتری پرظرفیت برای سرگرمی، عکاسی و استفاده روزانه طراحی شده است. جزئیات پردازنده و شبکه باید بر اساس نسخه دقیق دستگاه هنگام ثبت سفارش تأیید شوند.",
+    specs: [
+      { label: "نمایشگر", value: "AMOLED با وضوح بالا" },
+      { label: "دوربین اصلی", value: "تا 200MP، بسته به نسخه دستگاه" },
+      { label: "باتری", value: "باتری پرظرفیت با پشتیبانی از شارژ سریع" },
+      { label: "سیستم‌عامل", value: "Xiaomi HyperOS" },
+      { label: "شبکه", value: "نسخه 4G یا 5G؛ وابسته به مدل دقیق" },
+    ],
+  },
+  "airpods-pro": {
+    description: "ایرپادز پرو نسل دوم با تراشه H2، حذف نویز فعال و حالت شفافیت تطبیقی، تجربه شنیداری پیشرفته‌ای برای موسیقی و مکالمه فراهم می‌کند. طراحی داخل‌گوشی و کیس شارژ همراه، استفاده روزانه را آسان می‌کند.",
+    specs: [
+      { label: "تراشه", value: "Apple H2" },
+      { label: "حذف نویز", value: "Active Noise Cancellation" },
+      { label: "حالت شنیدن", value: "Transparency و Adaptive Audio" },
+      { label: "اتصال", value: "Bluetooth" },
+      { label: "شارژ", value: "کیس شارژ؛ نوع درگاه وابسته به نسخه" },
+      { label: "سازگاری", value: "دستگاه‌های Apple و سایر دستگاه‌های Bluetooth" },
+    ],
+  },
+  "galaxy-buds": {
+    description: "گلکسی بادز ۳ پرو هدفون بی‌سیم سامسونگ با طراحی ساقه‌ای، صدای باکیفیت، حذف نویز فعال و قابلیت صدای ۳۶۰ درجه است. این هدفون برای گوش‌دادن به موسیقی و مکالمه روزانه طراحی شده است.",
+    specs: [
+      { label: "نوع اتصال", value: "Bluetooth" },
+      { label: "سیستم صوتی", value: "بلندگوهای دوگانه و آمپلی‌فایر دوگانه" },
+      { label: "حذف نویز", value: "Active Noise Cancellation" },
+      { label: "قابلیت صوتی", value: "360 Audio" },
+      { label: "مقاومت", value: "IP57 برای ایربادها" },
+      { label: "سازگاری", value: "Android و دستگاه‌های Bluetooth" },
+    ],
+  },
+  "jbl-tune": {
+    description: "هدفون JBL Tune 770NC با قابلیت حذف نویز فعال، اتصال بی‌سیم و صدای JBL Pure Bass برای موسیقی و استفاده روزمره طراحی شده است. طراحی روگوشی و باتری بادوام، آن را برای استفاده طولانی‌مدت مناسب می‌کند.",
+    specs: [
+      { label: "نوع هدفون", value: "روگوشی، بی‌سیم" },
+      { label: "صدا", value: "JBL Pure Bass Sound" },
+      { label: "حذف نویز", value: "Adaptive Noise Cancelling" },
+      { label: "اتصال", value: "Bluetooth 5.3" },
+      { label: "عمر باتری", value: "تا 70 ساعت، بسته به شرایط استفاده" },
+      { label: "مکالمه", value: "میکروفون داخلی" },
+    ],
+  },
+  "galaxy-watch": {
+    description: "گلکسی واچ ۷ ساعت هوشمند سامسونگ با سیستم‌عامل Wear OS، حسگرهای پایش سلامت و قابلیت‌های ورزشی است. این ساعت اطلاعات فعالیت روزانه و شاخص‌های مختلف سلامتی را در کنار اعلان‌های گوشی نمایش می‌دهد.",
+    specs: [
+      { label: "سیستم‌عامل", value: "Wear OS با رابط One UI Watch" },
+      { label: "پردازنده", value: "Exynos W1000" },
+      { label: "نمایشگر", value: "Super AMOLED" },
+      { label: "سلامت", value: "پایش ضربان قلب، خواب و فعالیت ورزشی" },
+      { label: "موقعیت‌یابی", value: "GPS" },
+      { label: "سازگاری", value: "گوشی‌های Android سازگار" },
+    ],
+  },
+  "xiaomi-band": {
+    description: "شیائومی اسمارت بند ۹ یک مچ‌بند سبک برای پایش فعالیت‌های روزانه، خواب و ضربان قلب است. نمایشگر AMOLED روشن، حالت‌های ورزشی متنوع و شارژدهی طولانی آن را برای استفاده مداوم مناسب می‌کند.",
+    specs: [
+      { label: "نمایشگر", value: "1.62 اینچ AMOLED" },
+      { label: "پایش سلامت", value: "ضربان قلب، اکسیژن خون و خواب" },
+      { label: "حالت ورزشی", value: "بیش از 150 حالت ورزشی" },
+      { label: "مقاومت در برابر آب", value: "5ATM" },
+      { label: "عمر باتری", value: "تا 21 روز، بسته به استفاده" },
+      { label: "اتصال", value: "Bluetooth" },
+    ],
+  },
+  "anker-powerbank": {
+    description: "پاوربانک انکر با ظرفیت ۲۰۰۰۰ میلی‌آمپر ساعت برای شارژ دستگاه‌های همراه در سفر و استفاده روزمره طراحی شده است. ظرفیت بالا و طراحی قابل حمل آن امکان شارژ مجدد گوشی و لوازم جانبی را فراهم می‌کند.",
+    specs: [
+      { label: "ظرفیت اسمی", value: "20000mAh" },
+      { label: "نوع محصول", value: "پاوربانک قابل حمل" },
+      { label: "کاربری", value: "شارژ گوشی و دستگاه‌های سازگار" },
+      { label: "درگاه‌ها", value: "بسته به مدل دقیق دستگاه" },
+      { label: "برند", value: "Anker" },
+    ],
+  },
+  "baseus-charger": {
+    description: "شارژر ۶۵ واتی بیسوس برای شارژ سریع گوشی، تبلت و برخی لپ‌تاپ‌های سازگار طراحی شده است. توان خروجی بالا و ابعاد جمع‌وجور آن، گزینه‌ای کاربردی برای خانه و سفر محسوب می‌شود.",
+    specs: [
+      { label: "حداکثر توان خروجی", value: "65W" },
+      { label: "نوع محصول", value: "شارژر دیواری" },
+      { label: "کاربری", value: "گوشی، تبلت و دستگاه‌های سازگار" },
+      { label: "فناوری شارژ", value: "بسته به مدل، پشتیبانی از پروتکل‌های شارژ سریع" },
+      { label: "برند", value: "Baseus" },
+    ],
+  },
+  "usb-c-cable": {
+    description: "کابل USB-C بیسوس برای اتصال و شارژ دستگاه‌های مجهز به درگاه USB-C طراحی شده است. این کابل برای استفاده روزمره مناسب است؛ توان شارژ و سرعت انتقال داده به مدل دقیق کابل و شارژر بستگی دارد.",
+    specs: [
+      { label: "نوع اتصال", value: "USB-C" },
+      { label: "کاربری", value: "شارژ و انتقال داده" },
+      { label: "سازگاری", value: "دستگاه‌های دارای درگاه USB-C" },
+      { label: "برند", value: "Baseus" },
+      { label: "توان شارژ", value: "وابسته به مدل دقیق کابل" },
+    ],
+  },
+  "phone-case": {
+    description: "قاب محافظ گوشی برای کاهش آسیب‌های ناشی از خط‌وخش و ضربه‌های روزمره طراحی شده است. ساختار سبک و دسترسی به دکمه‌ها و درگاه‌ها، استفاده از گوشی را آسان نگه می‌دارد. سازگاری قاب باید با مدل گوشی تطبیق داده شود.",
+    specs: [
+      { label: "نوع محصول", value: "قاب محافظ گوشی" },
+      { label: "کاربری", value: "محافظت در برابر خط‌وخش و ضربه‌های روزمره" },
+      { label: "دسترسی", value: "برش محل دکمه‌ها و درگاه‌ها" },
+      { label: "سازگاری", value: "نیازمند تطبیق با مدل گوشی" },
+      { label: "برند", value: "Spigen" },
+    ],
+  },
+  "samsung-charger": {
+    description: "شارژر ۲۵ واتی سامسونگ برای شارژ سریع گوشی‌ها و دستگاه‌های سازگار طراحی شده است. پشتیبانی از USB-C Power Delivery و فناوری PPS در مدل‌های سازگار، شارژ مطمئن و کارآمدی فراهم می‌کند.",
+    specs: [
+      { label: "حداکثر توان خروجی", value: "25W" },
+      { label: "درگاه خروجی", value: "USB-C" },
+      { label: "فناوری شارژ", value: "USB Power Delivery و PPS" },
+      { label: "کاربری", value: "گوشی‌ها و دستگاه‌های سازگار با USB-C" },
+      { label: "برند", value: "Samsung" },
+    ],
+  },
+}
+
+const sampleReviews = (rating: number) => [
+  { author: 'خریدار فروشگاه', rating: Math.round(rating), date: '2026-10-12', comment: 'کیفیت محصول رضایت‌بخش بود و از خریدم راضی هستم.' },
+  { author: 'مشتری', rating: Math.max(3, Math.round(rating) - 1), date: '2026-09-28', comment: 'محصول با توضیحات مطابقت داشت و بسته‌بندی مناسبی داشت.' },
+  { author: 'خریدار', rating: 5, date: '2026-09-02', comment: 'تجربه خرید خوبی بود. پیشنهاد می‌کنم.' },
+]
+
+const namesAr: Record<string, string> = {
+  "iphone-16-pro": "آيفون 16 برو من آبل",
+  "samsung-s25-ultra": "سامسونج جالاكسي S25 ألترا",
+  "xiaomi-14t-pro": "شاومي 14T برو",
+  "iphone-15": "آيفون 15 من آبل",
+  "samsung-a56": "سامسونج جالاكسي A56",
+  "redmi-note-14": "شاومي ريدمي نوت 14 برو",
+  "airpods-pro": "سماعات آيربودز برو 2",
+  "galaxy-buds": "سامسونج جالاكسي بادز 3 برو",
+  "jbl-tune": "سماعات JBL Tune 770NC اللاسلكية",
+  "galaxy-watch": "ساعة سامسونج جالاكسي Watch 7",
+  "xiaomi-band": "سوار شاومي الذكي Smart Band 9",
+  "anker-powerbank": "بطارية أنكر متنقلة 20000 مللي أمبير",
+  "baseus-charger": "شاحن بيسوس سريع 65 واط",
+  "usb-c-cable": "كابل شحن بيسوس USB-C",
+  "phone-case": "غطاء حماية للهاتف الذكي",
+  "samsung-charger": "شاحن سامسونج سريع 25 واط",
+  "honor-400-pro": "HONOR 400 Pro",
+  "motorola-edge-60-pro": "Motorola Edge 60 Pro",
+  "oneplus-13": "OnePlus 13",
+  "pixel-9-pro": "Google Pixel 9 Pro",
+  "ipad-pro-m4": "Apple iPad Pro M4",
+  "ipad-air-m3": "Apple iPad Air M3",
+  "samsung-tab-s10-ultra": "Samsung Galaxy Tab S10 Ultra",
+  "samsung-tab-s10-plus": "Samsung Galaxy Tab S10+",
+  "xiaomi-pad-7-pro": "Xiaomi Pad 7 Pro",
+  "lenovo-tab-p12": "Lenovo Tab P12",
+  "redmi-pad-pro": "Xiaomi Redmi Pad Pro",
+  "oneplus-pad-2": "OnePlus Pad 2",
+  "honor-pad-9": "HONOR Pad 9",
+  "huawei-matepad-11-5": "Huawei MatePad 11.5",
+  "macbook-air-m3": "Apple MacBook Air M3",
+  "macbook-pro-m4": "Apple MacBook Pro M4",
+  "asus-zenbook-14": "ASUS Zenbook 14 OLED",
+  "asus-vivobook-15": "ASUS Vivobook 15",
+  "lenovo-ideapad-slim-5": "Lenovo IdeaPad Slim 5",
+  "lenovo-legion-5": "Lenovo Legion 5",
+  "hp-pavilion-15": "HP Pavilion 15",
+  "dell-inspiron-16": "Dell Inspiron 16",
+  "acer-swift-go-14": "Acer Swift Go 14",
+  "surface-laptop-7": "Microsoft Surface Laptop 7",
+  "sony-wh1000xm5": "Sony WH-1000XM5",
+  "bose-qc-ultra": "Bose QuietComfort Ultra",
+  "soundcore-q45": "Soundcore Space Q45",
+  "sony-wf1000xm5": "Sony WF-1000XM5",
+  "nothing-ear": "Nothing Ear",
+  "redmi-buds-6-pro": "Xiaomi Redmi Buds 6 Pro",
+  "beats-studio-pro": "Beats Studio Pro",
+  "apple-watch-series-10": "Apple Watch Series 10",
+  "apple-watch-ultra-2": "Apple Watch Ultra 2",
+  "galaxy-watch-ultra": "Samsung Galaxy Watch Ultra",
+  "huawei-watch-gt5": "Huawei Watch GT 5",
+  "amazfit-balance": "Amazfit Balance",
+  "garmin-vivoactive-5": "Garmin Vivoactive 5",
+  "huawei-band-9": "Huawei Band 9",
+  "amazfit-gtr-mini": "Amazfit GTR Mini",
+  "magsafe-powerbank": "MagSafe Wireless Power Bank",
+  "ugreen-3in1-charger": "UGREEN 3-in-1 Wireless Charger",
+  "foldable-phone-stand": "Foldable Aluminum Phone Stand",
+  "privacy-screen-protector": "Privacy Screen Protector",
+  "beaded-phone-strap": "Beaded Phone Wrist Strap",
+}
+
+const namesFa: Record<string, string> = {
+  "iphone-16-pro": "اپل آیفون ۱۶ پرو",
+  "samsung-s25-ultra": "سامسونگ گلکسی S25 اولترا",
+  "xiaomi-14t-pro": "شیائومی ۱۴T پرو",
+  "iphone-15": "اپل آیفون ۱۵",
+  "samsung-a56": "سامسونگ گلکسی A56",
+  "redmi-note-14": "شیائومی ردمی نوت ۱۴ پرو",
+  "airpods-pro": "اپل ایرپادز پرو ۲",
+  "galaxy-buds": "سامسونگ گلکسی بادز ۳ پرو",
+  "jbl-tune": "هدفون بی‌سیم JBL Tune 770NC",
+  "galaxy-watch": "ساعت هوشمند سامسونگ گلکسی واچ ۷",
+  "xiaomi-band": "مچ‌بند هوشمند شیائومی اسمارت بند ۹",
+  "anker-powerbank": "پاوربانک انکر ۲۰۰۰۰ میلی‌آمپر",
+  "baseus-charger": "شارژر سریع ۶۵ وات بیسوس",
+  "usb-c-cable": "کابل شارژ USB-C بیسوس",
+  "phone-case": "قاب محافظ گوشی هوشمند",
+  "samsung-charger": "شارژر سریع ۲۵ وات سامسونگ",
+  "honor-400-pro": "آنر ۴۰۰ پرو",
+  "motorola-edge-60-pro": "موتورولا اج ۶۰ پرو",
+  "oneplus-13": "وان‌پلاس ۱۳",
+  "pixel-9-pro": "گوگل پیکسل ۹ پرو",
+  "ipad-pro-m4": "اپل آیپد پرو M4",
+  "ipad-air-m3": "اپل آیپد ایر M3",
+  "samsung-tab-s10-ultra": "سامسونگ گلکسی تب S10 اولترا",
+  "samsung-tab-s10-plus": "سامسونگ گلکسی تب S10 پلاس",
+  "xiaomi-pad-7-pro": "شیائومی پد ۷ پرو",
+  "lenovo-tab-p12": "لنوو تب P12",
+  "redmi-pad-pro": "شیائومی ردمی پد پرو",
+  "oneplus-pad-2": "وان‌پلاس پد ۲",
+  "honor-pad-9": "آنر پد ۹",
+  "huawei-matepad-11-5": "هواوی میت‌پد ۱۱.۵",
+  "macbook-air-m3": "اپل مک‌بوک ایر M3",
+  "macbook-pro-m4": "اپل مک‌بوک پرو M4",
+  "asus-zenbook-14": "ایسوس زنبوک ۱۴ OLED",
+  "asus-vivobook-15": "ایسوس ویووبوک ۱۵",
+  "lenovo-ideapad-slim-5": "لنوو آیدیاپد اسلیم ۵",
+  "lenovo-legion-5": "لنوو لیجن ۵",
+  "hp-pavilion-15": "اچ‌پی پاویلیون ۱۵",
+  "dell-inspiron-16": "دل اینسپایرون ۱۶",
+  "acer-swift-go-14": "ایسر سوئیفت گو ۱۴",
+  "surface-laptop-7": "مایکروسافت سرفیس لپ‌تاپ ۷",
+  "sony-wh1000xm5": "سونی WH-1000XM5",
+  "bose-qc-ultra": "بوز کوایت‌کامفورت اولترا",
+  "soundcore-q45": "انکر ساوندکور اسپیس Q45",
+  "sony-wf1000xm5": "سونی WF-1000XM5",
+  "nothing-ear": "ناتینگ ایر",
+  "redmi-buds-6-pro": "شیائومی ردمی بادز ۶ پرو",
+  "beats-studio-pro": "بیتس استودیو پرو",
+  "apple-watch-series-10": "اپل واچ سری ۱۰",
+  "apple-watch-ultra-2": "اپل واچ اولترا ۲",
+  "galaxy-watch-ultra": "سامسونگ گلکسی واچ اولترا",
+  "huawei-watch-gt5": "هواوی واچ GT 5",
+  "amazfit-balance": "آمازفیت بالانس",
+  "garmin-vivoactive-5": "گارمین ویوو‌اکتیو ۵",
+  "huawei-band-9": "هواوی بند ۹",
+  "amazfit-gtr-mini": "آمازفیت GTR مینی",
+  "magsafe-powerbank": "پاوربانک بی‌سیم مگ‌سیف",
+  "ugreen-3in1-charger": "شارژر بی‌سیم سه‌کاره یوگرین",
+  "foldable-phone-stand": "پایه نگهدارنده تاشو گوشی",
+  "privacy-screen-protector": "محافظ صفحه نمایش پرایوسی",
+  "beaded-phone-strap": "بند مچی مهره‌ای گوشی",
+}
+
+export const products: Product[] = seeds.map((s, i) => ({
+  id: i + 1,
+  name: s.name,
+  nameFa: namesFa[s.slug],
+    nameAr: namesAr[s.slug],
+  slug: s.slug,
+  price: s.price * 10000,
+  priceOld: s.priceOld ? s.priceOld * 10000 : undefined,
+  category: s.category,
+  brand: s.brand,
+  rating: s.rating,
+  reviewsCount: s.reviewsCount,
+  stock: s.stock,
+  description: productDetails[s.slug]?.description ?? `${namesFa[s.slug]}؛ محصولی از برند ${s.brand}.`,
+  variants: {
+    colors,
+    sizes: noSizes,
+  },
+  specs: [
+    ...(productDetails[s.slug]?.specs ?? []),
+    { label: 'برند', value: s.brand },
+    { label: 'گارانتی', value: '۱۸ ماه' },
+    { label: 'وضعیت', value: 'آکبند' },
+    { label: 'شناسه محصول', value: `MOB-${1000 + i}` },
+  ],
+  reviews: sampleReviews(s.rating),
+  featured: s.featured,
+  bestseller: s.bestseller,
+  isNew: s.isNew,
+  createdAt: new Date(2026, 9, 1 + i).toISOString(),
+}))
+
+export const brands = Array.from(new Set(products.map((p) => p.brand))).sort()
+
+export const priceBounds = {
+  min: Math.floor(Math.min(...products.map((p) => p.price))),
+  max: Math.ceil(Math.max(...products.map((p) => p.price))),
+}
+
+export function findProduct(slug: string): Product | undefined {
+  return products.find((p) => p.slug === slug)
+}
+
+export function relatedProducts(product: Product, limit = 4): Product[] {
+  return products
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, limit)
+}

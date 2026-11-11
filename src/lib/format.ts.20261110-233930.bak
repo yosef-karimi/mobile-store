@@ -1,0 +1,13 @@
+/** نمایش قیمت فروشگاه به تومان با ارقام فارسی */
+export function formatPrice(value: number, _lang = 'fa'): string {
+  const amount = Math.round(value)
+  return `${new Intl.NumberFormat('fa-IR', {
+    maximumFractionDigits: 0,
+  }).format(amount)} تومان`
+}
+
+/** Percentage discount between an old and current price. */
+export function discountPercent(price: number, priceOld?: number): number {
+  if (!priceOld || priceOld <= price) return 0
+  return Math.round(((priceOld - price) / priceOld) * 100)
+}

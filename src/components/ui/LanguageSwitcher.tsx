@@ -1,0 +1,55 @@
+import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { LANGUAGES } from '@/i18n'
+import IconBase from './IconBase'
+
+export default function LanguageSwitcher() {
+  const { i18n, t } = useTranslation()
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement | null>(null)
+  const currentCode = i18n.language.split('-')[0]
+  const current = LANGUAGES.find((l) => l.code === currentCode) ?? LANGUAGES[0]
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        className="flex h-10 min-w-10 items-center justify-center rounded-full border border-themed px-2 text-sm font-semibold hover:bg-gray-50 dark:hover:bg-gray-800"
+        onClick={() => setOpen((s) => !s)}
+        aria-label={t('common.language')}
+        title={t('common.language')}
+      >
+        {current.label}
+      </button>
+
+      {open && (
+        <div className="surface-card absolute end-0 z-50 mt-3 w-36 rounded-xl border py-1 shadow-theme-lg">
+          {LANGUAGES.map((lang) => (
+            <button
+              key={lang.code}
+              type="button"
+              onClick={() => {
+                i18n.changeLanguage(lang.code)
+                setOpen(false)
+              }}
+              className={`flex w-full items-center justify-between px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 ${
+                lang.code === current.code ? 'font-semibold text-brand-600' : 'text-body'
+              }`}
+            >
+              <span>{lang.label}</span>
+              {lang.code === current.code && <IconBase name="check" size={14} />}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}

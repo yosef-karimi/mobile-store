@@ -1,0 +1,383 @@
+{
+  "brand": "Loja",
+  "common": {
+    "search": "بحث",
+    "searchPlaceholder": "ابحث عن المنتجات والعلامات التجارية...",
+    "account": "حسابي",
+    "cart": "سلة التسوق",
+    "wishlist": "قائمة المفضلة",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "register": "إنشاء حساب",
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "categories": "الفئات",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "viewAll": "عرض الكل",
+    "viewMore": "عرض المزيد",
+    "loading": "جارٍ التحميل...",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "edit": "تعديل",
+    "remove": "إزالة",
+    "delete": "حذف",
+    "add": "إضافة",
+    "continue": "متابعة",
+    "back": "رجوع",
+    "next": "التالي",
+    "close": "إغلاق",
+    "apply": "تطبيق",
+    "clear": "مسح",
+    "yes": "نعم",
+    "no": "لا",
+    "from": "ابتداءً من",
+    "off": "خصم",
+    "new": "جديد",
+    "bestseller": "الأكثر مبيعًا",
+    "free": "مجاني",
+    "theme": "تغيير المظهر",
+    "language": "اللغة",
+    "results": "{{count}} نتيجة",
+    "results_other": "{{count}} نتائج"
+  },
+  "nav": {
+    "allCategories": "جميع الفئات",
+    "deals": "العروض",
+    "bestsellers": "الأكثر مبيعًا",
+    "new": "وصل حديثًا"
+  },
+  "categories": {
+    "eletronicos": {
+      "name": "الإلكترونيات",
+      "desc": "الأجهزة والتقنيات"
+    },
+    "moda": {
+      "name": "الأزياء",
+      "desc": "الملابس والإكسسوارات"
+    },
+    "casa": {
+      "name": "المنزل والديكور",
+      "desc": "كل ما تحتاجه لمنزلك"
+    },
+    "esportes": {
+      "name": "الرياضة",
+      "desc": "اللياقة والأنشطة الخارجية"
+    },
+    "beleza": {
+      "name": "الجمال",
+      "desc": "العناية ومستحضرات التجميل"
+    },
+    "acessorios": {
+      "name": "الإكسسوارات",
+      "desc": "الإضافات والمستلزمات"
+    }
+  },
+  "home": {
+    "heroBadge": "مجموعة ٢٠٢٦",
+    "heroTitle": "كل ما تحتاجه في مكان واحد",
+    "heroSubtitle": "منتجات مختارة بعناية، وتوصيل سريع، وأفضل الأسعار. استفد من عروضنا الحصرية اليوم.",
+    "heroCta": "تسوق الآن",
+    "heroSecondary": "عرض العروض",
+    "featuredCategories": "الفئات المميزة",
+    "featuredProducts": "المنتجات المميزة",
+    "bestsellers": "الأكثر مبيعًا",
+    "newsletterTitle": "احصل على عروض حصرية",
+    "newsletterSubtitle": "اشترك في نشرتنا البريدية واحصل على خصم ١٠٪ على طلبك الأول.",
+    "newsletterPlaceholder": "بريدك الإلكتروني",
+    "newsletterCta": "اشتراك",
+    "newsletterSuccess": "تم الاشتراك بنجاح! أهلًا بك.",
+    "benefits": {
+      "shippingTitle": "شحن مجاني",
+      "shippingDesc": "للطلبات التي تتجاوز ٢٩٩ تومان",
+      "secureTitle": "دفع آمن",
+      "secureDesc": "بياناتك محمية",
+      "returnTitle": "إرجاع سهل",
+      "returnDesc": "يمكنك الإرجاع خلال ٣٠ يومًا",
+      "supportTitle": "دعم على مدار الساعة",
+      "supportDesc": "نحن هنا لمساعدتك في أي وقت"
+    }
+  },
+  "catalog": {
+    "title": "جميع المنتجات",
+    "filters": "التصفية",
+    "category": "الفئة",
+    "price": "نطاق السعر",
+    "brand": "العلامة التجارية",
+    "rating": "التقييم",
+    "ratingUp": "{{count}} نجوم أو أكثر",
+    "allCategories": "الكل",
+    "clearFilters": "مسح عوامل التصفية",
+    "sortBy": "ترتيب حسب",
+    "sort": {
+      "relevance": "الأكثر صلة",
+      "priceAsc": "السعر: من الأقل إلى الأعلى",
+      "priceDesc": "السعر: من الأعلى إلى الأقل",
+      "newest": "الأحدث",
+      "rating": "الأعلى تقييمًا"
+    },
+    "gridView": "عرض شبكي",
+    "listView": "عرض قائمة",
+    "noResults": "لم يتم العثور على منتجات",
+    "noResultsDesc": "جرّب تعديل عوامل التصفية أو البحث عن شيء آخر.",
+    "showingResults": "عرض {{shown}} من أصل {{total}} منتجًا"
+  },
+  "search": {
+    "title": "نتائج البحث عن \"{{query}}\"",
+    "empty": "لا توجد نتائج عن \"{{query}}\"",
+    "emptyDesc": "تحقق من كتابة الكلمات أو جرّب كلمات بحث مختلفة.",
+    "placeholder": "ما الذي تبحث عنه؟"
+  },
+  "product": {
+    "addToCart": "أضف إلى السلة",
+    "buyNow": "اشترِ الآن",
+    "addToWishlist": "أضف إلى المفضلة",
+    "removeFromWishlist": "إزالة من المفضلة",
+    "color": "اللون",
+    "size": "المقاس",
+    "quantity": "الكمية",
+    "inStock": "متوفر",
+    "lowStock": "لم يتبقَّ سوى {{count}}",
+    "outOfStock": "غير متوفر",
+    "sku": "رمز المنتج",
+    "brand": "العلامة التجارية",
+    "reviews": "{{count}} مراجعة",
+    "reviews_other": "{{count}} مراجعات",
+    "tabs": {
+      "description": "الوصف",
+      "specs": "المواصفات",
+      "reviews": "التقييمات"
+    },
+    "related": "قد يعجبك أيضًا",
+    "addedToCart": "تمت إضافة المنتج إلى السلة",
+    "selectVariant": "اختر اللون والمقاس",
+    "writeReview": "اكتب تقييمًا"
+  },
+  "cart": {
+    "title": "سلة التسوق",
+    "empty": "سلة التسوق فارغة",
+    "emptyDesc": "أضف منتجات لمتابعة التسوق.",
+    "continueShopping": "متابعة التسوق",
+    "item": "المنتج",
+    "price": "السعر",
+    "quantity": "الكمية",
+    "subtotal": "المجموع الفرعي",
+    "total": "الإجمالي",
+    "coupon": "قسيمة الخصم",
+    "couponPlaceholder": "أدخل الرمز",
+    "couponApply": "تطبيق",
+    "couponApplied": "تم تطبيق القسيمة {{code}} بنجاح!",
+    "couponInvalid": "قسيمة غير صالحة",
+    "couponHint": "جرّب: DEMO10 أو LOJA20",
+    "discount": "الخصم",
+    "shipping": "الشحن",
+    "shippingFree": "مجاني",
+    "estimatedShipping": "تكلفة الشحن التقديرية",
+    "freeShippingHint": "أضف {{amount}} أخرى للحصول على شحن مجاني!",
+    "checkout": "إتمام الشراء",
+    "summary": "ملخص الطلب",
+    "removed": "تمت إزالة المنتج من السلة",
+    "drawerTitle": "سلة التسوق",
+    "viewCart": "عرض السلة"
+  },
+  "checkout": {
+    "title": "إتمام الشراء",
+    "steps": {
+      "identification": "البيانات الشخصية",
+      "shipping": "الشحن",
+      "payment": "الدفع",
+      "review": "مراجعة الطلب"
+    },
+    "identification": {
+      "title": "بياناتك",
+      "name": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "cpf": "الرقم الضريبي"
+    },
+    "shippingStep": {
+      "title": "عنوان الشحن",
+      "zip": "الرمز البريدي",
+      "street": "الشارع",
+      "number": "رقم المبنى",
+      "complement": "تفاصيل إضافية",
+      "district": "الحي",
+      "city": "المدينة",
+      "state": "المحافظة",
+      "method": "طريقة التوصيل",
+      "standard": "توصيل عادي (٥–٧ أيام)",
+      "express": "توصيل سريع (١–٢ يوم)"
+    },
+    "payment": {
+      "title": "طريقة الدفع",
+      "card": "بطاقة ائتمان",
+      "pix": "الدفع عبر PIX",
+      "boleto": "قسيمة دفع بنكية",
+      "cardNumber": "رقم البطاقة",
+      "cardName": "الاسم على البطاقة",
+      "cardExpiry": "تاريخ الانتهاء",
+      "cardCvv": "رمز CVV",
+      "pixInfo": "ستحصل على رمز PIX بعد تأكيد الطلب.",
+      "boletoInfo": "سيتم إصدار قسيمة الدفع البنكية بعد التأكيد."
+    },
+    "review": {
+      "title": "مراجعة طلبك",
+      "items": "المنتجات",
+      "deliverTo": "عنوان التوصيل",
+      "paymentMethod": "طريقة الدفع",
+      "placeOrder": "تأكيد الطلب"
+    },
+    "summary": "الملخص",
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "email": "البريد الإلكتروني غير صالح",
+      "min": "المدخل قصير جدًا",
+      "cardNumber": "رقم البطاقة غير صالح",
+      "cvv": "رمز CVV غير صالح"
+    }
+  },
+  "confirmation": {
+    "title": "تم تأكيد الطلب!",
+    "subtitle": "شكرًا لشرائك. أرسلنا تفاصيل الطلب إلى بريدك الإلكتروني.",
+    "orderNumber": "رقم الطلب",
+    "nextSteps": "الخطوات التالية",
+    "step1": "نعمل على تجهيز طلبك",
+    "step2": "ستتلقى رمز تتبع الشحنة",
+    "step3": "يمكنك تتبع التوصيل من حسابك",
+    "viewOrder": "عرض الطلب",
+    "keepShopping": "متابعة التسوق",
+    "noOrder": "لم يتم العثور على طلب"
+  },
+  "account": {
+    "title": "حسابي",
+    "overview": "نظرة عامة",
+    "orders": "طلباتي",
+    "addresses": "العناوين",
+    "wishlist": "قائمة المفضلة",
+    "hello": "مرحبًا، {{name}}!",
+    "memberSince": "عميل منذ عام ٢٠٢٦",
+    "shortcuts": "اختصارات",
+    "recentOrders": "الطلبات الأخيرة",
+    "noOrders": "لم تقم بإجراء أي طلب حتى الآن",
+    "noOrdersDesc": "ستظهر طلباتك هنا بعد إتمام عملية الشراء.",
+    "orderStatus": {
+      "placed": "تم استلام الطلب",
+      "paid": "تم تأكيد الدفع",
+      "shipped": "تم الشحن",
+      "delivered": "تم التوصيل"
+    },
+    "orderDate": "التاريخ",
+    "orderTotal": "الإجمالي",
+    "orderItems": "{{count}} منتج",
+    "orderItems_other": "{{count}} منتجات",
+    "viewDetails": "عرض التفاصيل",
+    "timeline": "تتبع الطلب",
+    "addressBook": "عناويني",
+    "addAddress": "إضافة عنوان",
+    "editAddress": "تعديل العنوان",
+    "defaultAddress": "الافتراضي",
+    "setDefault": "تعيين كعنوان افتراضي",
+    "noAddresses": "لا توجد عناوين محفوظة",
+    "noAddressesDesc": "أضف عنوانًا لتسريع عملية الشراء.",
+    "addressSaved": "تم حفظ العنوان",
+    "addressRemoved": "تم حذف العنوان",
+    "emptyWishlist": "قائمة المفضلة فارغة",
+    "emptyWishlistDesc": "احفظ المنتجات التي تعجبك للعودة إليها لاحقًا.",
+    "logoutSuccess": "تم تسجيل الخروج",
+    "stats": {
+      "orders": "الطلبات",
+      "wishlist": "المفضلة",
+      "addresses": "العناوين"
+    }
+  },
+  "auth": {
+    "loginTitle": "مرحبًا بعودتك",
+    "loginSubtitle": "سجّل الدخول للوصول إلى حسابك",
+    "registerTitle": "أنشئ حسابك",
+    "registerSubtitle": "أنشئ حسابك في ثوانٍ",
+    "name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "remember": "تذكرني",
+    "forgot": "هل نسيت كلمة المرور؟",
+    "loginCta": "تسجيل الدخول",
+    "registerCta": "إنشاء حساب",
+    "loggingIn": "جارٍ تسجيل الدخول...",
+    "registering": "جارٍ إنشاء الحساب...",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "demoTitle": "حساب تجريبي:",
+    "demoHint": "أو استخدم أي بريد إلكتروني وكلمة مرور",
+    "loginError": "تعذر تسجيل الدخول. تحقق من بياناتك.",
+    "loginSuccess": "تم تسجيل الدخول بنجاح",
+    "registerSuccess": "تم إنشاء الحساب بنجاح",
+    "passwordMismatch": "كلمتا المرور غير متطابقتين"
+  },
+  "about": {
+    "title": "عن متجر Loja",
+    "subtitle": "نربطك بأفضل المنتجات منذ عام ٢٠٢٦.",
+    "storyTitle": "قصتنا",
+    "story": "بدأنا بهدف جعل التسوق عبر الإنترنت بسيطًا وآمنًا وممتعًا. نختار كل منتج بعناية ونعمل على تقديم أفضل تجربة، من لحظة الطلب حتى وصوله إلى باب منزلك.",
+    "missionTitle": "رسالتنا",
+    "mission": "تقديم منتجات عالية الجودة بأسعار عادلة، مع خدمة تُحدث فرقًا حقيقيًا.",
+    "stats": {
+      "customers": "عملاء سعداء",
+      "products": "المنتجات",
+      "countries": "الدول",
+      "rating": "متوسط التقييم"
+    },
+    "valuesTitle": "قيمنا",
+    "values": {
+      "quality": "الجودة",
+      "qualityDesc": "نختار لك أفضل المنتجات فقط.",
+      "trust": "الثقة",
+      "trustDesc": "الشفافية في كل خطوة.",
+      "speed": "السرعة",
+      "speedDesc": "توصيل سريع مع إمكانية تتبع الشحنة."
+    }
+  },
+  "contact": {
+    "title": "اتصل بنا",
+    "subtitle": "هل لديك سؤال؟ نحن هنا لمساعدتك.",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "subject": "الموضوع",
+    "message": "الرسالة",
+    "send": "إرسال الرسالة",
+    "sending": "جارٍ الإرسال...",
+    "success": "تم إرسال رسالتك! سنرد عليك قريبًا.",
+    "infoTitle": "معلومات التواصل",
+    "phone": "الهاتف",
+    "address": "العنوان",
+    "addressValue": "شارع 1000 فلاورز — ساو باولو، SP",
+    "hours": "ساعات العمل",
+    "hoursValue": "من الاثنين إلى الجمعة، من ٩ صباحًا حتى ٦ مساءً"
+  },
+  "footer": {
+    "tagline": "متجرك الإلكتروني الموثوق. منتجات مختارة بعناية مع توصيل سريع وآمن.",
+    "shop": "التسوق",
+    "support": "الدعم",
+    "company": "الشركة",
+    "help": "مركز المساعدة",
+    "shipping": "الشحن",
+    "returns": "الإرجاع",
+    "faq": "الأسئلة الشائعة",
+    "careers": "الوظائف",
+    "press": "الصحافة",
+    "privacy": "الخصوصية",
+    "terms": "شروط الاستخدام",
+    "newsletterTitle": "ابقَ على اطلاع",
+    "newsletterDesc": "العروض والأخبار تصلك مباشرة إلى بريدك الإلكتروني.",
+    "rights": "© ٢٠٢٦ Loja. جميع الحقوق محفوظة.",
+    "payments": "طرق الدفع"
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "subtitle": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "cta": "العودة إلى المتجر"
+  },
+  "breadcrumb": {
+    "home": "الرئيسية"
+  }
+}

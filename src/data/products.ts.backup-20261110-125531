@@ -1,0 +1,199 @@
+import { productImageMap } from './product-image-map'
+import type { Product } from './types'
+
+const photo = (id: string, w = 800) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=85`
+
+const gallery: Record<string, string[]> = {
+  'iphone-16-pro': [
+    'photo-1592899677977-9c10ca588bbd',
+    'photo-1512499617640-c74ae3a79d37',
+    'photo-1605236453806-6ff36851218e',
+    'photo-1598327105666-5b89351aff97',
+  ],
+  'iphone-15': [
+    'photo-1511709268805-6e6b0c4d8a4b',
+    'photo-1592750475338-74b7b21085ab',
+    'photo-1601784551446-20c9e07cdbdb',
+    'photo-1510557880182-3d4d3cba35a5',
+  ],
+  'samsung-s25-ultra': [
+    'photo-1511709268805-6e6b0c4d8a4b',
+    'photo-1605236453806-6ff36851218e',
+    'photo-1598327105666-5b89351aff97',
+    'photo-1512499617640-c74ae3a79d37',
+  ],
+  'samsung-a56': [
+    'photo-1592899677977-9c10ca588bbd',
+    'photo-1510557880182-3d4d3cba35a5',
+    'photo-1592750475338-74b7b21085ab',
+    'photo-1601784551446-20c9e07cdbdb',
+  ],
+  'xiaomi-14t-pro': [
+    'photo-1598327105666-5b89351aff97',
+    'photo-1511709268805-6e6b0c4d8a4b',
+    'photo-1605236453806-6ff36851218e',
+    'photo-1512499617640-c74ae3a79d37',
+  ],
+  'redmi-note-14': [
+    'photo-1592750475338-74b7b21085ab',
+    'photo-1592899677977-9c10ca588bbd',
+    'photo-1510557880182-3d4d3cba35a5',
+    'photo-1601784551446-20c9e07cdbdb',
+  ],
+  'airpods-pro': [
+    'photo-1600294037681-c80b4cb5b434',
+    'photo-1590658268037-6bf12165a8df',
+    'photo-1606220945770-b5b6c2c55bf1',
+    'photo-1608156639585-b3a032ef9689',
+  ],
+  'galaxy-buds': [
+    'photo-1590658268037-6bf12165a8df',
+    'photo-1606220945770-b5b6c2c55bf1',
+    'photo-1608156639585-b3a032ef9689',
+    'photo-1600294037681-c80b4cb5b434',
+  ],
+  'jbl-tune': [
+    'photo-1505740420928-5e560c06d30e',
+    'photo-1484704849700-f032a568e944',
+    'photo-1546435770-a3e426bf472b',
+    'photo-1599669454699-248893623440',
+  ],
+  'galaxy-watch': [
+    'photo-1523275335684-37898b6baf30',
+    'photo-1546868871-7041f2a55e12',
+    'photo-1508685096489-7aacd43bd3b1',
+    'photo-1434493789847-2f02dc6ca35d',
+  ],
+  'xiaomi-band': [
+    'photo-1546868871-7041f2a55e12',
+    'photo-1523275335684-37898b6baf30',
+    'photo-1508685096489-7aacd43bd3b1',
+    'photo-1434493789847-2f02dc6ca35d',
+  ],
+  'anker-powerbank': [
+    'photo-1609592806596-b43bada3f2a2',
+    'photo-1609091839311-d5365f9ff1c5',
+    'photo-1608043152269-423dbba4e7e1',
+    'photo-1583394838336-acd977736f90',
+  ],
+  'baseus-charger': [
+    'photo-1583863788434-e58a36330cf0',
+    'photo-1609592806596-b43bada3f2a2',
+    'photo-1609091839311-d5365f9ff1c5',
+    'photo-1583394838336-acd977736f90',
+  ],
+  'usb-c-cable': [
+    'photo-1558618666-fcd25c85cd64',
+    'photo-1583863788434-e58a36330cf0',
+    'photo-1609592806596-b43bada3f2a2',
+    'photo-1609091839311-d5365f9ff1c5',
+  ],
+  'phone-case': [
+    'photo-1601593346740-925612772716',
+    'photo-1601784551446-20c9e07cdbdb',
+    'photo-1512499617640-c74ae3a79d37',
+    'photo-1592750475338-74b7b21085ab',
+  ],
+  'samsung-charger': [
+    'photo-1583863788434-e58a36330cf0',
+    'photo-1558618666-fcd25c85cd64',
+    'photo-1609592806596-b43bada3f2a2',
+    'photo-1609091839311-d5365f9ff1c5',
+  ],
+}
+
+export function productImages(slug: string, count = 4): string[] {
+  const images = productImageMap[slug] ?? []
+  if (!images.length) return []
+  return Array.from({ length: count }, (_, i) => images[i % images.length])
+}
+
+const colors = ['#171717', '#ffffff', '#2563eb', '#a7a7a7']
+const noSizes: string[] = []
+
+type Seed = {
+  name: string
+  slug: string
+  price: number
+  priceOld?: number
+  category: string
+  brand: string
+  rating: number
+  reviewsCount: number
+  stock: number
+  featured?: boolean
+  bestseller?: boolean
+  isNew?: boolean
+}
+
+const seeds: Seed[] = [
+  { name: 'Apple iPhone 16 Pro', slug: 'iphone-16-pro', price: 7499, priceOld: 7999, category: 'eletronicos', brand: 'Apple', rating: 4.9, reviewsCount: 286, stock: 12, featured: true, bestseller: true },
+  { name: 'Samsung Galaxy S25 Ultra', slug: 'samsung-s25-ultra', price: 6899, priceOld: 7299, category: 'eletronicos', brand: 'Samsung', rating: 4.9, reviewsCount: 194, stock: 9, featured: true, isNew: true },
+  { name: 'Xiaomi 14T Pro', slug: 'xiaomi-14t-pro', price: 3299, priceOld: 3599, category: 'eletronicos', brand: 'Xiaomi', rating: 4.7, reviewsCount: 132, stock: 21, featured: true },
+  { name: 'Apple iPhone 15', slug: 'iphone-15', price: 5299, category: 'eletronicos', brand: 'Apple', rating: 4.8, reviewsCount: 310, stock: 15, bestseller: true },
+  { name: 'Samsung Galaxy A56', slug: 'samsung-a56', price: 2199, priceOld: 2399, category: 'eletronicos', brand: 'Samsung', rating: 4.6, reviewsCount: 88, stock: 32, isNew: true },
+  { name: 'Xiaomi Redmi Note 14 Pro', slug: 'redmi-note-14', price: 1899, category: 'eletronicos', brand: 'Xiaomi', rating: 4.6, reviewsCount: 105, stock: 27, bestseller: true },
+  { name: 'Apple AirPods Pro 2', slug: 'airpods-pro', price: 1199, priceOld: 1399, category: 'acessorios', brand: 'Apple', rating: 4.9, reviewsCount: 420, stock: 18, featured: true },
+  { name: 'Samsung Galaxy Buds 3 Pro', slug: 'galaxy-buds', price: 899, category: 'acessorios', brand: 'Samsung', rating: 4.7, reviewsCount: 167, stock: 24 },
+  { name: 'JBL Tune 770NC Wireless Headphones', slug: 'jbl-tune', price: 599, priceOld: 749, category: 'acessorios', brand: 'JBL', rating: 4.7, reviewsCount: 203, stock: 31, featured: true },
+  { name: 'Samsung Galaxy Watch 7', slug: 'galaxy-watch', price: 1299, category: 'acessorios', brand: 'Samsung', rating: 4.8, reviewsCount: 118, stock: 14, isNew: true },
+  { name: 'Xiaomi Smart Band 9', slug: 'xiaomi-band', price: 399, category: 'acessorios', brand: 'Xiaomi', rating: 4.6, reviewsCount: 241, stock: 42, bestseller: true },
+  { name: 'Anker 20000mAh Power Bank', slug: 'anker-powerbank', price: 899, priceOld: 999, category: 'acessorios', brand: 'Anker', rating: 4.8, reviewsCount: 156, stock: 19, featured: true },
+  { name: 'Baseus 65W Fast Charger', slug: 'baseus-charger', price: 449, category: 'acessorios', brand: 'Baseus', rating: 4.7, reviewsCount: 97, stock: 35 },
+  { name: 'Baseus USB-C Charging Cable', slug: 'usb-c-cable', price: 129, category: 'acessorios', brand: 'Baseus', rating: 4.5, reviewsCount: 82, stock: 65 },
+  { name: 'Protective Smartphone Case', slug: 'phone-case', price: 159, category: 'acessorios', brand: 'Spigen', rating: 4.6, reviewsCount: 73, stock: 50 },
+  { name: 'Samsung 25W Fast Charger', slug: 'samsung-charger', price: 299, priceOld: 349, category: 'acessorios', brand: 'Samsung', rating: 4.7, reviewsCount: 111, stock: 29, bestseller: true },
+]
+
+const sampleReviews = (rating: number) => [
+  { author: 'Store customer', rating: Math.round(rating), date: '2026-10-12', comment: 'Great product quality. I am satisfied with my purchase.' },
+  { author: 'Customer', rating: Math.max(3, Math.round(rating) - 1), date: '2026-09-28', comment: 'The product matched its description and arrived with good packaging.' },
+  { author: 'Buyer', rating: 5, date: '2026-09-02', comment: 'A good shopping experience. Recommended.' },
+]
+
+export const products: Product[] = seeds.map((s, i) => ({
+  id: i + 1,
+  name: s.name,
+  slug: s.slug,
+  price: s.price,
+  priceOld: s.priceOld,
+  category: s.category,
+  brand: s.brand,
+  rating: s.rating,
+  reviewsCount: s.reviewsCount,
+  stock: s.stock,
+  description: `${s.name} by ${s.brand}. Designed for everyday use with modern styling and reliable performance. Product details are provided for this store demo.`,
+  variants: {
+    colors,
+    sizes: noSizes,
+  },
+  specs: [
+    { label: 'Brand', value: s.brand },
+    { label: 'Warranty', value: '18 months' },
+    { label: 'Condition', value: 'Brand new' },
+    { label: 'Product ID', value: `MOB-${1000 + i}` },
+  ],
+  reviews: sampleReviews(s.rating),
+  featured: s.featured,
+  bestseller: s.bestseller,
+  isNew: s.isNew,
+  createdAt: new Date(2026, 9, 1 + i).toISOString(),
+}))
+
+export const brands = Array.from(new Set(products.map((p) => p.brand))).sort()
+
+export const priceBounds = {
+  min: Math.floor(Math.min(...products.map((p) => p.price))),
+  max: Math.ceil(Math.max(...products.map((p) => p.price))),
+}
+
+export function findProduct(slug: string): Product | undefined {
+  return products.find((p) => p.slug === slug)
+}
+
+export function relatedProducts(product: Product, limit = 4): Product[] {
+  return products
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, limit)
+}

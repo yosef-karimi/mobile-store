@@ -1,0 +1,89 @@
+export const productImageMap: Record<string, string[]> = {
+  "iphone-16-pro": [
+    "/products/iphone-16-pro-1.jpg",
+    "/products/iphone-16-pro-2.jpg",
+    "/products/iphone-16-pro-3.jpg",
+    "/products/iphone-16-pro-4.jpg"
+  ],
+  "iphone-15": [
+    "/products/iphone-15-1.jpg",
+    "/products/iphone-15-2.jpg",
+    "/products/iphone-15-3.jpg",
+    "/products/iphone-15-4.jpg"
+  ],
+  "samsung-s25-ultra": [
+    "/products/samsung-s25-ultra-1.jpg",
+    "/products/samsung-s25-ultra-2.png",
+    "/products/samsung-s25-ultra-3.jpg",
+    "/products/samsung-s25-ultra-4.jpg"
+  ],
+  "samsung-a56": [
+    "/products/samsung-a56-1.png",
+    "/products/samsung-a56-2.jpg",
+    "/products/samsung-a56-3.jpg",
+    "/products/samsung-a56-4.jpg"
+  ],
+  "xiaomi-14t-pro": [
+    "/products/xiaomi-14t-pro-1.jpg",
+    "/products/xiaomi-14t-pro-2.jpg",
+    "/products/xiaomi-14t-pro-3.jpg",
+    "/products/xiaomi-14t-pro-4.jpg"
+  ],
+  "redmi-note-14": [
+    "/products/redmi-note-14-1.jpg",
+    "/products/redmi-note-14-2.jpg",
+    "/products/redmi-note-14-3.jpg",
+    "/products/redmi-note-14-4.jpg"
+  ],
+  "airpods-pro": [
+    "/products/airpods-pro-1.jpg",
+    "/products/airpods-pro-2.jpg",
+    "/products/airpods-pro-3.jpg",
+    "/products/airpods-pro-4.jpg"
+  ],
+  "galaxy-buds": [
+    "/products/galaxy-buds-1.jpg",
+    "/products/galaxy-buds-2.jpg",
+    "/products/galaxy-buds-3.jpg",
+    "/products/galaxy-buds-4.jpg"
+  ],
+  "jbl-tune": [
+    "/products/jbl-tune-1.jpg"
+  ],
+  "galaxy-watch": [
+    "/products/galaxy-watch-1.jpg",
+    "/products/galaxy-watch-2.jpg",
+    "/products/galaxy-watch-3.jpg",
+    "/products/galaxy-watch-4.jpg"
+  ],
+  "xiaomi-band": [
+    "/products/xiaomi-band-1.jpg"
+  ],
+  "anker-powerbank": [
+    "/products/anker-powerbank-1.jpg",
+    "/products/anker-powerbank-2.jpg",
+    "/products/anker-powerbank-3.jpg",
+    "/products/anker-powerbank-4.jpg"
+  ],
+  "baseus-charger": [
+    "/products/baseus-charger-1.jpg"
+  ],
+  "usb-c-cable": [
+    "/products/usb-c-cable-1.jpg",
+    "/products/usb-c-cable-2.jpg",
+    "/products/usb-c-cable-3.jpg",
+    "/products/usb-c-cable-4.jpg"
+  ],
+  "phone-case": [
+    "/products/phone-case-1.jpg",
+    "/products/phone-case-2.jpg",
+    "/products/phone-case-3.jpg",
+    "/products/phone-case-4.jpg"
+  ],
+  "samsung-charger": [
+    "/products/samsung-charger-1.jpg",
+    "/products/samsung-charger-2.jpg",
+    "/products/samsung-charger-3.jpg",
+    "/products/samsung-charger-4.jpg"
+  ]
+};

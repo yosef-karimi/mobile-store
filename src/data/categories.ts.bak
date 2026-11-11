@@ -1,0 +1,14 @@
+import type { Category } from './types'
+
+export const categories: Category[] = [
+  { id: 1, slug: 'eletronicos', name: 'موبایل و کالای دیجیتال', icon: 'package', description: 'گوشی موبایل و دستگاه‌های دیجیتال' },
+  { id: 2, slug: 'moda', name: 'مد و پوشاک', icon: 'tag', description: 'پوشاک و لوازم جانبی' },
+  { id: 3, slug: 'casa', name: 'خانه و دکوراسیون', icon: 'home', description: 'لوازم موردنیاز خانه' },
+  { id: 4, slug: 'esportes', name: 'ورزش', icon: 'zap', description: 'لوازم ورزشی' },
+  { id: 5, slug: 'beleza', name: 'زیبایی و سلامت', icon: 'star', description: 'محصولات مراقبت و زیبایی' },
+  { id: 6, slug: 'acessorios', name: 'لوازم جانبی', icon: 'gift', description: 'لوازم جانبی موبایل و دیجیتال' },
+]
+
+export function findCategory(slug: string): Category | undefined {
+  return categories.find((c) => c.slug === slug)
+}
