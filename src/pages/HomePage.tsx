@@ -245,10 +245,10 @@ export default function HomePage() {
 
           {/* Flash sale */}
           <div className="overflow-hidden rounded-2xl border-2 border-red-500 shadow-[0_12px_40px_rgba(239,68,68,0.12)]">
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-row">
               {/* Countdown panel */}
-              <div className="order-first flex w-full shrink-0 flex-col items-center justify-center bg-gradient-to-b from-[#f04449] to-[#bd171d] px-5 py-7 text-center text-white md:w-[200px]">
-                <h2 className="mb-5 text-xl font-black leading-8">
+              <div className="order-first flex w-[124px] shrink-0 flex-col items-center justify-center bg-gradient-to-b from-[#f04449] to-[#bd171d] px-2 py-4 text-center text-white sm:w-[140px] sm:px-3 md:w-[200px] md:px-5 md:py-7">
+                <h2 className="mb-3 text-sm font-black leading-6 sm:text-base md:mb-5 md:text-xl md:leading-8">
                   {promoText.deal}
                 </h2>
 
@@ -267,7 +267,7 @@ export default function HomePage() {
 
                 <Link
                   to="/produtos?sort=discount"
-                  className="mt-6 rounded-full bg-white/20 px-5 py-2.5 text-xs font-bold transition hover:bg-white/30"
+                  className="mt-4 rounded-full bg-white/20 px-3 py-2 text-[10px] font-bold transition hover:bg-white/30 md:mt-6 md:px-5 md:py-2.5 md:text-xs"
                 >
                   {promoText.all} ‹
                 </Link>

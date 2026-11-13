@@ -135,7 +135,7 @@ export default function Navbar() {
       </div>
 
       {/* category nav (desktop) */}
-      <div className="border-t border-themed">
+      <div className="hidden border-t border-themed lg:block">
         <div className="mx-auto flex h-12 max-w-7xl items-center gap-1 px-4 sm:px-6 lg:px-8">
           <div className="relative" ref={catRef}>
             <button

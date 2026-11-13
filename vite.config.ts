@@ -5,6 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { resolve } from 'path'
 
 export default defineConfig({
+  base: '/works/mobile/',
   plugins: [
     react(),
     tailwindcss(),
@@ -18,7 +19,8 @@ export default defineConfig({
         theme_color: '#465fff',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/',
+        start_url: '/works/mobile/',
+        scope: '/works/mobile/',
         icons: [
           { src: 'pwa-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'pwa-512.png', sizes: '512x512', type: 'image/png' },

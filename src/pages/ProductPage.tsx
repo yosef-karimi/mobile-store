@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { findProduct, productImages, relatedProducts } from '@/data/products'
 import { useCartStore } from '@/stores/cart'
@@ -211,9 +211,9 @@ export default function ProductPage() {
             >
               {isCompared ? t('compare.removeProduct') : t('compare.productButton')}
             </button>
-            <a href="/مقایسه" className="text-sm font-medium text-brand-600 hover:underline">
+            <Link to="/مقایسه" className="text-sm font-medium text-brand-600 hover:underline">
               {t('compare.open')} ({compareCount}/4)
-            </a>
+            </Link>
           </div>
 
           {/* Trust row */}

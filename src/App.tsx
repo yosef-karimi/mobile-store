@@ -49,7 +49,7 @@ export default function App() {
 
   useEffect(() => {
     applyTheme()
-    document.title = 'Loja — E-commerce Template'
+    document.title = 'Mobile Store | فروشگاه موبایل و لوازم جانبی'
   }, [applyTheme])
 
   return (

@@ -1,5 +1,5 @@
 {
-  "brand": "Loja",
+  "brand": "موبایل‌استور",
   "common": {
     "search": "Search",
     "searchPlaceholder": "Search products, brands...",
@@ -325,7 +325,7 @@
     "adminHint": "Admin password: 123"
   },
   "about": {
-    "title": "About Loja",
+    "title": "About موبایل‌استور",
     "subtitle": "Connecting you to the best products since 2026.",
     "storyTitle": "Our story",
     "story": "We were born to make online shopping simple, safe and enjoyable. We curate every product with care and work to deliver the best experience from click to your doorstep.",
@@ -379,7 +379,7 @@
     "terms": "Terms of use",
     "newsletterTitle": "Stay in the loop",
     "newsletterDesc": "Deals and news in your inbox.",
-    "rights": "© 2026 Loja. All rights reserved.",
+    "rights": "© 2026 موبایل‌استور. All rights reserved.",
     "payments": "Payment methods"
   },
   "notFound": {

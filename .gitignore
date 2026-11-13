@@ -1,6 +1,30 @@
-node_modules
-dist
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+.vite/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS and editor files
 .DS_Store
 *.local
-.vite
 *.tsbuildinfo
+
+# Local backups
+/backup-*/
+/backups/
+**/*.bak
+**/*.bak-*
+**/*.backup
+**/*.backup-*
+**/*-backup-*
+/public/products/*backup*/

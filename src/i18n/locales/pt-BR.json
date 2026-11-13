@@ -1,5 +1,5 @@
 {
-  "brand": "Loja",
+  "brand": "موبایل‌استور",
   "common": {
     "search": "Buscar",
     "searchPlaceholder": "Buscar produtos, marcas...",
@@ -315,7 +315,7 @@
     "passwordMismatch": "As senhas não coincidem"
   },
   "about": {
-    "title": "Sobre a Loja",
+    "title": "Sobre a موبایل‌استور",
     "subtitle": "Conectando você aos melhores produtos desde 2026.",
     "storyTitle": "Nossa história",
     "story": "Nascemos com o propósito de tornar as compras online simples, seguras e prazerosas. Curamos cada produto com cuidado e trabalhamos para entregar a melhor experiência do clique à porta da sua casa.",
@@ -369,7 +369,7 @@
     "terms": "Termos de uso",
     "newsletterTitle": "Fique por dentro",
     "newsletterDesc": "Ofertas e novidades no seu e-mail.",
-    "rights": "© 2026 Loja. Todos os direitos reservados.",
+    "rights": "© 2026 موبایل‌استور. Todos os direitos reservados.",
     "payments": "Formas de pagamento"
   },
   "notFound": {
